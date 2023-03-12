@@ -15,6 +15,19 @@ docker ps
 ## Access application logs from docker
 docker logs <container id>
 Example: docker logs 287e6953b9a4
+
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+172.17.0.1 - - [12/Mar/2023 15:40:30] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [12/Mar/2023 15:40:30] "GET /static/css/main.css HTTP/1.1" 200 -
+172.17.0.1 - - [12/Mar/2023 15:40:30] "GET /favicon.ico HTTP/1.1" 404 -
+
 ## Login to hub docker
 docker login -u hungdq1379
 
