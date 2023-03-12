@@ -11,5 +11,8 @@ http://localhost:3111
 
 ## Run the following docker ps command in a terminal to list your containers
 docker ps
-## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+## Login to hub docker
+docker login -u hungdq1379
+
+# push the image
+docker push techtrends:v1.0.0
