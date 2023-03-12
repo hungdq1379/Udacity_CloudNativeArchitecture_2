@@ -9,8 +9,12 @@ docker run -dp 3111:3111 techtrends
 # TODO: insert the docker logs command
 http://localhost:3111
 
-## Run the following docker ps command in a terminal to list your containers
+## Run the following docker ps command in a terminal to list your containers and then get container id
 docker ps
+
+## Access application logs from docker
+docker logs <container id>
+Example: docker logs 287e6953b9a4
 ## Login to hub docker
 docker login -u hungdq1379
 
