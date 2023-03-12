@@ -1,9 +1,0 @@
-FROM python:3.8
-
-WORKDIR /home/ubuntu20/Udacity_CloudNativeArchitecture_2/project/techtrends
-
-RUN pip install -r requirements.txt
-RUN python init_db.py
-
-EXPOSE 3111:3111
-CMD ["python","app.py"]
