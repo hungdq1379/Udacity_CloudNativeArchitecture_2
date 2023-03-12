@@ -1,11 +1,15 @@
-## Docker commands used to build the application 
-# TODO: insert the docker build command
+## Docker build the container image
+docker build -t techtrends .
 
-## Docker commands used to run the application
+## Run the image
 # TODO: insert the docker run command
+docker run -dp 3111:3111 techtrends
 
-## Docker commands used to get the application logs
+## View an containerd application on Web page
 # TODO: insert the docker logs command
+http://localhost:3111
 
+## Run the following docker ps command in a terminal to list your containers
+docker ps
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
