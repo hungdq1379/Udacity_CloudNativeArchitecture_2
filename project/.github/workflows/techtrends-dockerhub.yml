@@ -1,0 +1,35 @@
+name: TechTrends
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: 'hungdq1379'
+          password: 'dckr_pat_WahvR5yG-5-IKlosGhnDOuDSOcQ'
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: hungdq1379/techtrends:latest
+          secrets: |
+            GIT_AUTH_TOKEN='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'
