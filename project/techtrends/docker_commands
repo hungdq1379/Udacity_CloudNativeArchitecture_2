@@ -28,8 +28,11 @@ Example: docker logs 287e6953b9a4
 172.17.0.1 - - [12/Mar/2023 15:40:30] "GET /static/css/main.css HTTP/1.1" 200 -
 172.17.0.1 - - [12/Mar/2023 15:40:30] "GET /favicon.ico HTTP/1.1" 404 -
 
+## Tag source_image to target_image at local machine
+docker tag techtrends hungdq1379/tech:1.0.0
+
 ## Login to hub docker
 docker login -u hungdq1379
-
+pawword: type <token>
 # push the image
-docker push techtrends:v1.0.0
+docker push tech:1.0.0
