@@ -30,6 +30,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: hungdq1379/techTrends:latest
+          tags: hungdq1379/techtrends:latest
           secrets: |
             GIT_AUTH_TOKEN='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'
