@@ -29,6 +29,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: ./project/techtrends/Dockerfile
+          platforms: linux/arm64
           push: true
           tags: hungdq1379/techtrends:latest
           secrets: |
