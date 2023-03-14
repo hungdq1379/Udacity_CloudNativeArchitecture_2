@@ -1,6 +1,7 @@
 FROM python:3.8
 
-COPY . /app
+#COPY . /app
+COPY ./project/techtrends/ /app
 WORKDIR /app
 
 RUN pwd
