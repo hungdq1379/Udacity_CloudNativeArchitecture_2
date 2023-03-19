@@ -6,27 +6,6 @@ metadata:
     tag: alpine
   name: techtrends
   namespace: sandbox
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2
-    ports:
-    - containerPort: 80
-    resources:
-    - requests:
-        cpu: 250m
-        memory: 64Mi
-    - limits:
-        cpu: 500m
-        memory: 128Mi
-    livenessProbe:
-     httpGet:
-       path: /healthz
-       port: 3111
-    readiness probee:
-     httpGet:
-       path: /healthz
-       port: 3111
   replicas: 1
   selector:
     matchLabels:
@@ -47,3 +26,18 @@ spec:
       - image: techtrends:latest
         imagePullPolicy: IfNotPresent
         name: techtrends
+          resources:
+      - requests:
+        cpu: 250m
+        memory: 64Mi
+      - limits:
+        cpu: 500m
+        memory: 128Mi
+    livenessProbe:
+     httpGet:
+       path: /healthz
+       port: 3111
+    readiness probee:
+     httpGet:
+       path: /healthz
+       port: 3111
