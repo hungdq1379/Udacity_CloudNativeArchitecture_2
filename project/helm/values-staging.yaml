@@ -1,18 +1,16 @@
 ## provide the name of the namespace
-namespace:
-  name: sandbox
+namespace name: staging
+service port: 5111
+
 
 ## define the image to execute with the Deployment 
 image:
   repository: techtrends 
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 ## set the number of replicas for an application 
-replicaCount: 1
+replicaCount:5
 resources:
-  requests: memory 64Mi and CPU 250m
-  limits: memory 128Mi and CPU 500m
-containerPort: 3111
-livenessProbe path: /healthz
-readinessProbe path: /healthz
+  requests: memory 128Mi and CPU 350m
+  limits: memory 256Mi and CPU 500m
