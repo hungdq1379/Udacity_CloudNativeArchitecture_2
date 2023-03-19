@@ -1,7 +1,11 @@
 ## provide the name of the namespace
 namespace:
   name: sandbox
-
+service:
+  port: 4111
+  targetPort: 3111
+  protocol: TCP
+  type: ClusterIP
 ## define the image to execute with the Deployment 
 image:
   repository: techtrends 
