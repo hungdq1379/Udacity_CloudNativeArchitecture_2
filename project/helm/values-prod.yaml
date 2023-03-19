@@ -1,0 +1,15 @@
+## provide the name of the namespace
+namespace name: prod
+service port: 7111
+
+## define the image to execute with the Deployment 
+image:
+  repository: techtrends 
+  tag: latest
+  pullPolicy: Always
+
+## set the number of replicas for an application 
+replicaCount: 5
+resources:
+  requests: memory 128Mi and CPU 350m
+  limits: memory 256Mi and CPU 500m
