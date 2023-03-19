@@ -7,6 +7,26 @@ metadata:
   name: techtrends
   namespace: sandbox
 spec:
+  containers:
+    image: alpine
+    name: test-pod
+    ports:
+      containerPort: 3111
+    resources:
+      requests:
+        cpu: 250m
+        memory: 64Mi
+      limits:
+        cpu: 500m
+        memory: 128Mi
+    livenessProbe:
+     httpGet:
+       path: /healthz
+       port: 3111
+    readiness probee:
+     httpGet:
+       path: /healthz
+       port: 3111
   replicas: 1
   selector:
     matchLabels:
