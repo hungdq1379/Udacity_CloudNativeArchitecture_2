@@ -8,15 +8,15 @@ metadata:
   namespace: sandbox
 spec:
   containers:
-    image: alpine
+  - image: alpine
     name: test-pod
     ports:
-      containerPort: 3111
+    - containerPort: 3111
     resources:
-      requests:
+    - requests:
         cpu: 250m
         memory: 64Mi
-      limits:
+    - limits:
         cpu: 500m
         memory: 128Mi
     livenessProbe:
