@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -8,6 +9,8 @@ from werkzeug.exceptions import abort
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    global connnection_counter 
+    connnection_counter += 1
     return connection
 
 # Function to get a post using its ID
@@ -38,8 +41,12 @@ def healthcheck():
 
 @app.route('/metrics')
 def metrics():
+    connection = get_db_connection()
+    posts = connection.execute('SELECT * FROM posts').fetchall()
+    connection.close()
+    global connnection_counter
     response = app.response_class(
-            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23,"db_connection_count": 1, "post_count": 7}}),
+            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23,"db_connection_count": connection_counter, "post_count": len(posts}}),
             status=200,
             mimetype='application/json'
     )
@@ -63,8 +70,10 @@ def post(post_id):
     if post is None:
       ## log line
       app.logger.info('If the post ID is not found a 404 page is shown')
+      app.logger.debug("non-existing articles are accessed")
       return render_template('404.html'), 404
     else:
+      app.logger.debug('Access to article: ' + post['title'])
       return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -100,5 +109,13 @@ def create():
 # start the application on port 3111
 if __name__ == "__main__":
     ## stream logs to app.log file
-   logging.basicConfig(filename='app.log',level=logging.DEBUG)
-   app.run(host='0.0.0.0', port='3111')
+    logger = logging.getLogger("__name__")
+    logging.basicConfig( level=logging.DEBUG)
+    h1 = logging.StreamHandler(sys.stdout)
+    h1.setLevel(logging.DEBUG)
+    h2 = logging.StreamHandler(sys.stderr)
+    h2.setLevel(logging.ERROR)
+    logger.addHandler(h1)
+    logger.addHandler(h2)
+    logging.basicConfig(filename='app.log',level=logging.DEBUG)
+    app.run(host='0.0.0.0', port='3111')
