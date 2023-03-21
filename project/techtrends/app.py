@@ -11,8 +11,8 @@ from werkzeug.exceptions import abort
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
-    global connnection_counter 
-    connnection_counter += 1
+    global conn_counter 
+    conn_counter += 1
     return connection
 
 # Function to get a post using its ID
@@ -46,9 +46,9 @@ def metrics():
     connection = get_db_connection()
     posts = connection.execute('SELECT * FROM posts').fetchall()
     connection.close()
-    global connnection_counter
+    global conn_counter
     response = app.response_class(
-            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23,"db_connection_count": connection_counter, "post_count": len(posts)}}),
+            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23,"db_connection_count": conn_counter, "post_count": len(posts)}}),
             status=200,
             mimetype='application/json'
     )
