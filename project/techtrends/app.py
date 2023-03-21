@@ -33,13 +33,13 @@ def healthcheck():
     )
 
     ## log line
-    app.logger.info('Status request successfull')
+    app.logger.info('Status request successful')
     return response
 
 @app.route('/metrics')
 def metrics():
     response = app.response_class(
-            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23}}),
+            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23,"db_connection_count": 1, "post_count": 7}}),
             status=200,
             mimetype='application/json'
     )
@@ -61,6 +61,8 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      ## log line
+      app.logger.info('If the post ID is not found a 404 page is shown')
       return render_template('404.html'), 404
     else:
       return render_template('post.html', post=post)
@@ -68,11 +70,16 @@ def post(post_id):
 # Define the About Us page
 @app.route('/about')
 def about():
+    ## log line
+    app.logger.info('Define the About Us page')
     return render_template('about.html')
 
 # Define the post creation functionality 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
+    ## log line
+    app.logger.info('Define the post creation functionality')
+    
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -92,4 +99,6 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
+    ## stream logs to app.log file
+   logging.basicConfig(filename='app.log',level=logging.DEBUG)
    app.run(host='0.0.0.0', port='3111')
