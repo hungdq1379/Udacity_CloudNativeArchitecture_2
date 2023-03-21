@@ -8,6 +8,14 @@ metadata:
   namespace: sandbox
 spec:
   replicas: 1
+  resources:
+    requests:
+      cpu: 250m
+      memory: 64Mi
+    limits:
+      cpu: 500m
+      memory: 128Mi
+  container port: 3111
   selector:
     matchLabels:
       app: nginx
