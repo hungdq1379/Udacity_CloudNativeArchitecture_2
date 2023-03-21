@@ -120,4 +120,5 @@ if __name__ == "__main__":
     logger.addHandler(h1)
     logger.addHandler(h2)
     logging.basicConfig(filename='app.log',level=logging.DEBUG)
+    conn_counter = 0
     app.run(host='0.0.0.0', port='3111')
