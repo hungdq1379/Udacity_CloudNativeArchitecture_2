@@ -1,11 +1,12 @@
 ## provide the name of the namespace
-namespace name: prod
+namespace:
+  name: prod
 service:
   port: 7111
 
 ## define the image to execute with the Deployment 
 image:
-  repository: techtrends 
+  repository: hungdq1379/techtrends
   tag: latest
   pullPolicy: Always
 
@@ -13,8 +14,8 @@ image:
 replicaCount: 5
 resources:
   requests:
-    cpu: 128M
-    memory: 350m
+    cpu: 350m
+    memory: 128Mi
   limits:
-    cpu: 256Mi
-    memory: 500m
+    cpu: 500m
+    memory: 256Mi
