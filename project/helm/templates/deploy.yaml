@@ -24,6 +24,6 @@ spec:
         tag: alpine
     spec:
       containers:
-      - image: techtrends:latest
+      - image: hungdq1379/techtrends:latest
         imagePullPolicy: IfNotPresent
         name: techtrends
