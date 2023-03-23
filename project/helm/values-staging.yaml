@@ -1,5 +1,6 @@
 ## provide the name of the namespace
-namespace name: staging
+namespace:
+  name: staging
 service:
   port: 5111
 
