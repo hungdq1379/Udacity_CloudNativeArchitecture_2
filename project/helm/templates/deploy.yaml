@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nginx
+    app: techtrends
     tag: techtrends
   name: techtrends
   namespace: {{ .Values.namespace.name }}
@@ -11,7 +11,7 @@ spec:
   
   selector:
     matchLabels:
-      app: nginx
+      app: techtrends
       tag: techtrends
   strategy:
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: techtrends
         tag: techtrends
     spec:
       containers:
