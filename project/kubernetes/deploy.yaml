@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
   labels:
     app: techtrends
   name: techtrends
@@ -17,13 +18,13 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      creationTimestamp: null
       labels:
         app: techtrends
     spec:
       containers:
-      - image: techtrends:latest
-        imagePullPolicy: IfNotPresent
-        name: techtrends    
+      - image: techtrends
+        name: techtrends
         resources:
           requests:
             cpu: 250m
