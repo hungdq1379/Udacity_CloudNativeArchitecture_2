@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: nginx
-    tag: alpine
+    tag: techtrends
   name: techtrends
   namespace: {{ .Values.namespace.name }}
 spec:
@@ -13,5 +13,5 @@ spec:
     targetPort: {{ .Values.service.targetPort }}
   selector:
     app: nginx
-    tag: alpine
+    tag: techtrends
   type: ClusterIP
