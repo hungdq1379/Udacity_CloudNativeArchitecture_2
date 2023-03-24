@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: nginx
-    tag: alpine
+    tag: techtrends
   name: techtrends
   namespace: sandbox
 spec:
@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-      tag: alpine
+      tag: techtrends
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,7 +21,7 @@ spec:
     metadata:
       labels:
         app: nginx
-        tag: alpine
+        tag: techtrends
     spec:
       containers:
       - image: techtrends:latest
