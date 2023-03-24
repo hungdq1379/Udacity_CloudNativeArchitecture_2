@@ -3,7 +3,6 @@ kind: Service
 metadata:
   labels:
     app: techtrends
-    tag: techtrends
   name: techtrends
   namespace: {{ .Values.namespace.name }}
 spec:
@@ -13,5 +12,4 @@ spec:
     targetPort: {{ .Values.service.targetPort }}
   selector:
     app: techtrends
-    tag: techtrends
   type: ClusterIP
