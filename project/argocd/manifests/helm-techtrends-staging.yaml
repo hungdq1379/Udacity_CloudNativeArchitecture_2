@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: default
-    server: https://127.0.0.1:6443
+    server: https://kubernetes.default.svc
   project: default
   source:
     helm:
