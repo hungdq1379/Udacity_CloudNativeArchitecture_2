@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
       - values-prod.yaml
-    path: project/helm
+    path: project/argocd/manifests
     repoURL: https://github.com/hungdq1379/Udacity_CloudNativeArchitecture_2
     targetRevision: HEAD
 
