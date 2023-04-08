@@ -3,7 +3,7 @@ namespace:
   name: prod
 service:
   port: 7111
-
+  type: ClusterIP
 ## define the image to execute with the Deployment 
 image:
   repository: hungdq1379/techtrends
