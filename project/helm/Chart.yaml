@@ -1,15 +1,9 @@
-## The chart API version
 apiVersion: v1
-## The name of the chart. 
-## In this case,  the chart name is`Techtrends `.
-name: techtrends 
-## A single-sentence description of this project
-description: Run Techtrends
-## A list of keywords about this project to quickly identify the chart's capabilities.
-keywords: techtrends 
-## The chart version, here set to `1.0.0`
+name: techtrends
+description: Install techtrends deployment
+keywords:
+- techtrends 
 version: 1.0.0
-## List of maintainers, their names, and method of contact
 maintainers:
 - name: hungdq0603 
   email: hungdq0603@gmail.com
