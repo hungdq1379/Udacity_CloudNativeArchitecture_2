@@ -3,11 +3,12 @@ namespace:
   name: prod
 service:
   port: 7111
+  targetPort: 3111
+  protocol: TCP
   type: ClusterIP
 ## define the image to execute with the Deployment 
 image:
-  repository: hungdq1379/techtrends
-  tag: latest
+  repository: hungdq1379/techtrends:latest
   pullPolicy: Always
 
 ## set the number of replicas for an application 
@@ -19,3 +20,11 @@ resources:
   limits:
     cpu: 500m
     memory: 256Mi
+livenessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111
+readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111
