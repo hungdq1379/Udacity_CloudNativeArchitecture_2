@@ -9,7 +9,7 @@ service:
   type: ClusterIP
 ## define the image to execute with the Deployment 
 image:
-  repository: hungdq1379/techtrends
+  repository: hungdq1379/techtrends:
   tag: latest
   pullPolicy: IfNotPresent
 
